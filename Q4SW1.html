@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Seatwork 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+    body{
+        font-family: monospace;
+        background-color: #ffe4ec;
+    }
+
+    h1{
+        color: #d63384;
+    }
+
+    .card{
+        max-width: 500px;
+        margin: auto;
+         background-color: #fff0f6;
+    }
+
+    .btn-primary{
+        background-color: pink;
+        border: none;
+    }
+
+    .btn-info{
+        background-color: lightpink;
+        border: none;
+    }
+
+    #result{
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container mt-5 text-center">
+
+  <h1 class="mb-4">🌸 Login Authentication Page</h1>
+
+    <button class="btn btn-info mb-3" onclick="toggleInstructions()">Show Instructions</button>
+
+    <div id="instructions" class="alert" style="display:none; background-color:#ffe3ec;">
+        <h2>Instructions: </h2>
+        <p>Enter the correct username and password to log in.</p>
+        <p><b>Username:</b> MaiahCabonilas</p>
+        <p><b>Password:</b> 092410</p>
+    </div>
+
+    <div class="card p-4 shadow-lg">
+     <h2 class="mb-3" style="color:#d63384;">Login</h2>
+
+        <form onsubmit="return authenticate()">
+
+            <div class="mb-3 text-start">
+                <label>Username:</label>
+                <input type="text" id="username" class="form-control" placeholder="Enter username" required>
+            </div>
+
+            <div class="mb-3 text-start">
+                <label>Password:</label>
+              <input type="password" id="password" class="form-control" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+
+        <p id="result" class="mt-3"></p>
+    </div>
+</div>
+
+<script>
+    function toggleInstructions(){
+        var section = document.getElementById("instructions");
+
+        if (section.style.display === "none"){
+            section.style.display = "block";
+        } else{
+            section.style.display = "none";
+        }
+    }
+
+    function authenticate(){
+
+        var username = document.getElementById("username").value;
+       var password = document.getElementById("password").value;
+
+        var correctUser = "MaiahCabonilas";
+        var correctPass = "092410";
+
+        if (username === correctUser && password === correctPass){
+
+            document.getElementById("result").innerHTML = "🩷 Access Granted";
+            document.getElementById("result").style.color = "green";
+            window.alert("Welcome!");
+
+        }else{
+
+            document.getElementById("result").innerHTML = "💔 Access Denied";
+            document.getElementById("result").style.color = "red";
+            window.alert("Incorrect username and/or password");
+
+        }
+
+         return false;
+    }
+</script>
+
+</body>
+</html>
